@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\StudentController;
+use App\Models\Customer;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\StudentController;
 
 
 Route::get('/',[StudentController::class,'create'])->name('student.create');
@@ -47,5 +48,20 @@ Route::view('/upload_image', 'upload.image');
 
 Route::post('/upload_image', [PostController::class,'upload_image'])->name('upload_image');
 Route::get('/file', [PostController::class,'file'])->name('file');
+
+// customer Dumy Data add
+Route::get('/add_customer', function () {
+   for ($i=0; $i <= 10 ; $i++) {
+        Customer::create([
+            'name' => "moshiur $i",
+            'email' => "moshiur$i@gmail.com",
+            'phone' => "0174578745$i",
+            'country' => "Bangladesh$i",
+            'votes' => "12$i",
+        ]);
+   }
+});
+
+
 
 
