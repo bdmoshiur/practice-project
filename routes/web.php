@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use App\Models\Customer;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
@@ -62,6 +63,9 @@ Route::get('/add_customer', function () {
    }
 });
 
+
+// Get customer Using Query Builder
+Route::get('/get_customer', [CustomerController::class, 'get_customer']);
 
 
 
