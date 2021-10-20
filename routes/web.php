@@ -42,3 +42,10 @@ Route::get('/log', function () {
 });
 
 
+ // Upload File use Route View method
+Route::view('/upload_image', 'upload.image');
+
+Route::post('/upload_image', [PostController::class,'upload_image'])->name('upload_image');
+Route::get('/file', [PostController::class,'file'])->name('file');
+
+
